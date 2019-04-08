@@ -1,0 +1,21 @@
+{
+    "name": "testing-bot",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "./index.js",
+    "scripts": {
+        "lint": "eslint . --ext .js",
+        "lint:fix": "yarn lint --fix"
+    },
+    "dependencies": {
+        "discord.js": "discordjs/discord.js",
+        "dotenv": "^7.0.0",
+        "earl": "devsnek/earl",
+        "klasa": "dirigeants/klasa",
+        "klasa-dashboard-hooks": "dirigeants/klasa-dashboard-hooks"
+    },
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "eslint-config-pyro": "pyrotechniac/pyro-lint"
+    }
+}
