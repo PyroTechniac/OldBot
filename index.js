@@ -13,7 +13,10 @@ new KlasaClient({
     commandMessageLifetime: 120,
     prefix: ['/', 't!'],
     providers: {
-        default: 'json'
+        default: 'mongodb',
+        mongodb: {
+            connectionString: process.env.DB_STRING
+        }
     },
     consoleEvents: {
         verbose: true,
