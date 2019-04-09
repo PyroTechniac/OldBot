@@ -25,8 +25,5 @@ new KlasaClient({
         warn: true,
         wtf: true
     },
-    commandLogging: true,
-    dashboardHooks: {
-        port: 1234
-    }
+    commandLogging: true
 }).login(process.env.TOKEN);
