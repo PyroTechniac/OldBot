@@ -12,7 +12,9 @@
         "dotenv": "^7.0.0",
         "earl": "devsnek/earl",
         "klasa": "dirigeants/klasa",
-        "klasa-dashboard-hooks": "dirigeants/klasa-dashboard-hooks"
+        "klasa-dashboard-hooks": "dirigeants/klasa-dashboard-hooks",
+        "klasa-member-gateway": "dirigeants/klasa-member-gateway",
+        "node-fetch": "^2.3.0"
     },
     "devDependencies": {
         "eslint": "^5.16.0",

@@ -1,8 +1,11 @@
 const { KlasaClient } = require('klasa');
 const dash = require('klasa-dashboard-hooks');
+const members = require('klasa-member-gateway');
 require('dotenv').config();
 
-KlasaClient.use(dash);
+KlasaClient
+    .use(dash)
+    .use(members);
 
 new KlasaClient({
     regexPrefix: /^(hey )?test(,|!)/i,
@@ -19,5 +22,8 @@ new KlasaClient({
         warn: true,
         wtf: true
     },
-    commandLogging: true
+    commandLogging: true,
+    dashboardHooks: {
+        port: 1234
+    }
 }).login(process.env.TOKEN);
