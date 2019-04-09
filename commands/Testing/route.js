@@ -19,7 +19,7 @@ module.exports = class extends Command {
 
     async run(message) {
         const test = await fetch(`https://botpyro-testing.herokuapp.com/api/guilds/${message.guild.id}`)
-            .then(res => res.json());
+            .then(console.log);
 
         this.client.console.log(test);
     }
