@@ -1,1 +1,1 @@
-worker: npm start -port 80
+worker: npm start
