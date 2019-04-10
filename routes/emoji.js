@@ -8,6 +8,7 @@ module.exports = class extends Route {
     }
     get(request, response) {
         const { guildID, emojiID } = request.params;
+        this.client.console.log(`${guildID}: ${emojiID}`);
         const guild = this.client.guilds.get(guildID);
         if (!guild) return response.end('{}');
         const emoji = guild.emojis.get(emojiID);
