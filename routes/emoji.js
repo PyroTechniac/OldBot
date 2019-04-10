@@ -11,6 +11,7 @@ module.exports = class extends Route {
         const guild = this.client.guilds.get(guildID);
         if (!guild) return response.end('{}');
         const emoji = guild.emojis.get(emojiID);
+        console.log(emoji);
         if (!emoji) return response.end('{}');
         return response.end(JSON.stringify(emoji));
     }
