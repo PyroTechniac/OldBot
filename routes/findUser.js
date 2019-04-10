@@ -2,7 +2,7 @@ const { Route } = require('klasa-dashboard-hooks');
 
 module.exports = class extends Route {
     constructor(...args) {
-        super(...args, { route: '/users/find/:username' });
+        super(...args, { route: 'users/find/:username' });
     }
 
     get(request, response) {
