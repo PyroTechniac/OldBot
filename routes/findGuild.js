@@ -13,10 +13,10 @@ module.exports = class extends Route {
 
     get(request, response) {
         const { guildName } = request.params;
-        let guilds = this.client.guilds.filter(findInexact(guildName));
+        let guilds = this.client.guilds.filter(guild => guild.name.toLowerCase().includes(guildName.toLowerCase()));
         if (guilds.size === 0) return response.end('{}');
         if (guilds.size === 1) return response.end(JSON.stringify(guilds.first()));
-        if (guilds.size > 1) guilds = guilds.filter(findExact(guildName));
+        if (guilds.size > 1) guilds = guilds.filter(guild => guild.name.toLowerCase() === guildName.toLowerCase());
 
         if (guilds.size === 0 || guilds.size > 1) return response.end('{}');
         return response.end(JSON.stringify(guilds.first()));
