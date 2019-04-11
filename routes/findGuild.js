@@ -8,7 +8,7 @@ const findExact = (name) => {
 
 module.exports = class extends Route {
     constructor(...args) {
-        super(...args, { route: 'find/guild/:guildName' });
+        super(...args, { route: 'find/guilds/:guildName' });
     }
 
     get(request, response) {
