@@ -17,7 +17,7 @@ new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
     commandMessageLifetime: 120,
-    prefix: ['/', 't!'],
+    prefix: ['/', 's!'],
     providers: {
         default: 'mongodb',
         mongodb: {
