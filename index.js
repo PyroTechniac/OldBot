@@ -5,7 +5,7 @@ KlasaClient
     .use(require('klasa-dashboard-hooks'))
     .use(require('./plugins/tags'));
 new KlasaClient({
-    regexPrefix: /^(hey )?test(,|!)/i,
+    regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
     commandMessageLifetime: 120,
     prefix: ['/', 't!'],
