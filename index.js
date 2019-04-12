@@ -5,7 +5,14 @@ KlasaClient
     .use(require('klasa-dashboard-hooks'))
     .use(require('./plugins/tags'))
     .use(require('./plugins/functions'))
-    .use(require('./plugins/channelsGateway'));
+    .use(require('./plugins/channelsGateway'))
+    .defaultGuildSchema
+    .add('deleteCommand', 'boolean', { default: false })
+    .add('antiinvite', 'boolean', { default: false })
+    .add('roles', folder => {
+        folder
+            .add('muted', 'Role');
+    });
 new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
