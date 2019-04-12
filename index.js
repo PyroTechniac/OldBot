@@ -1,12 +1,9 @@
 const { KlasaClient } = require('klasa');
-const dash = require('klasa-dashboard-hooks');
-const members = require('klasa-member-gateway');
 require('dotenv').config();
 
 KlasaClient
-    .use(dash)
-    .use(members);
-
+    .use(require('klasa-dashboard-hooks'))
+    .use(require('./plugins/tags'));
 new KlasaClient({
     regexPrefix: /^(hey )?test(,|!)/i,
     commandEditing: true,

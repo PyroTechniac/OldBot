@@ -14,7 +14,6 @@
         "earl": "devsnek/earl",
         "klasa": "dirigeants/klasa",
         "klasa-dashboard-hooks": "dirigeants/klasa-dashboard-hooks",
-        "klasa-member-gateway": "dirigeants/klasa-member-gateway",
         "mongodb": "^3.2.3",
         "node-fetch": "^2.3.0"
     },
