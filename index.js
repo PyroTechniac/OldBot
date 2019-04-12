@@ -3,7 +3,9 @@ require('dotenv').config();
 
 KlasaClient
     .use(require('klasa-dashboard-hooks'))
-    .use(require('./plugins/tags'));
+    .use(require('./plugins/tags'))
+    .use(require('./plugins/functions'))
+    .use(require('./plugins/channelsGateway'));
 new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
