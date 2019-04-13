@@ -9,6 +9,7 @@ KlasaClient
     .defaultGuildSchema
     .add('deleteCommand', 'boolean', { default: false })
     .add('antiinvite', 'boolean', { default: false })
+    .add('minAccAge', 'integer', { default: 1800000 })
     .add('roles', folder => {
         folder
             .add('muted', 'Role');
