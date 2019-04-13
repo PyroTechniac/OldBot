@@ -9,8 +9,7 @@ module.exports = class extends Command {
     async run(message) {
         const embed = new MessageEmbed()
             .setAuthor(message.member.displayName, message.author.displayAvatarURL())
-            .setColor(message.guild.me.displayColor)
-            .setFooter(message.guild.me.displayName, this.client.user.displayAvatarURL())
+            .setColor(message.member.displayColor)
             .addField('Level', `${message.author.settings.level}`)
             .addField('Experience', `${message.author.settings.experience}`);
 
