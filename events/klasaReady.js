@@ -6,6 +6,6 @@ module.exports = class extends Event {
     }
 
     async run() {
-        this.client.schedule.create('cleanup', '*/30 * * * *');
+        this.client.schedule.create('cleanup', '@daily');
     }
 };
