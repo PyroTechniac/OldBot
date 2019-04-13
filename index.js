@@ -10,6 +10,7 @@ KlasaClient
     .add('deleteCommand', 'boolean', { default: false })
     .add('antiinvite', 'boolean', { default: false })
     .add('minAccAge', 'integer', { default: 1800000 })
+    .add('levelling', 'boolean', { default: true })
     .add('roles', folder => {
         folder
             .add('muted', 'Role');
@@ -17,11 +18,20 @@ KlasaClient
 KlasaClient.defaultClientSchema
     .add('message', 'messagepromise')
     .add('timestamp', 'bigint', { default: 0 });
+KlasaClient.defaultUserSchema
+    .add('experience', 'Integer', {
+        default: 0,
+        configurable: false
+    })
+    .add('level', 'Integer', {
+        default: 0,
+        configurable: false
+    });
 new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
-    commandMessageLifetime: 120,
-    prefix: ['/', 's!'],
+    commandMessageLifetime: 1800,
+    prefix: 's!',
     providers: {
         default: 'mongodb',
         mongodb: {
