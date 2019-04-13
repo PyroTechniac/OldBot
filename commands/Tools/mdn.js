@@ -8,7 +8,8 @@ module.exports = class extends Command {
         super(client, store, file, directory, {
             description: 'Searches MDN for the specified string',
             usage: '<queryString:string>',
-            usageDelim: ' '
+            usageDelim: ' ',
+            requiredPermissions: ['EMBED_LINKS']
         });
     }
     async parse(query) {

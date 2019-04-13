@@ -7,7 +7,8 @@ module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
             description: 'Get information on a mentioned user.',
-            usage: '[Member:member]'
+            usage: '[Member:member]',
+            requiredPermissions: ['EMBED_LINKS']
         });
         this.statuses = {
             online: '💚 Online',

@@ -9,7 +9,8 @@ module.exports = class extends Command {
         super(...args, {
             aliases: ['sub'],
             description: 'Returns information on a subreddit.',
-            usage: '<subredditName:str>'
+            usage: '<subredditName:str>',
+            requiredPermissions: ['EMBED_LINKS']
         });
         this.errorMessage = 'There was an error. Reddit may be down, or the subreddit doesnt exist.';
     }

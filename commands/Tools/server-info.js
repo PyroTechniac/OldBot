@@ -8,7 +8,8 @@ module.exports = class extends Command {
         super(...args, {
             runIn: ['text'],
             aliases: ['guild'],
-            description: 'Get information on the current server.'
+            description: 'Get information on the current server.',
+            requiredPermissions: ['EMBED_LINKS']
         });
         this.verificationLevels = [
             'None',

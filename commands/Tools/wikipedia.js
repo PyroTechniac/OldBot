@@ -9,7 +9,8 @@ module.exports = class extends Command {
         super(...args, {
             aliases: ['wiki'],
             description: 'Finds a Wikipedia Article by title.',
-            usage: '<query:str>'
+            usage: '<query:str>',
+            requiredPermissions: ['EMBED_LINKS']
         });
     }
 

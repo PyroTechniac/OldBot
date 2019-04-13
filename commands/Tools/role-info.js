@@ -7,7 +7,8 @@ module.exports = class extends Command {
         super(...args, {
             runIn: ['text'],
             description: 'Get information on a role with an id or a mention.',
-            usage: '<Role:role>'
+            usage: '<Role:role>',
+            requiredPermissions: ['EMBED_LINKS']
         });
         this.perms = {
             ADMINISTRATOR: 'Administrator',

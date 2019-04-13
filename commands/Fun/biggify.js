@@ -5,7 +5,7 @@ const jimp = require('jimp');
 module.exports = class extends Command {
 
     constructor(...args) {
-        super(...args, { description: 'Makes a big version of an image.' });
+        super(...args, { description: 'Makes a big version of an image.', requiredPermissions: ['ATTACH_FILES'] });
     }
 
     async run(msg) {

@@ -27,7 +27,10 @@ KlasaClient.defaultUserSchema
         default: 0,
         configurable: false
     })
-    .add('cooling', 'boolean', { default: false });
+    .add('cooling', 'boolean', {
+        default: false,
+        configurable: false
+    });
 new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,

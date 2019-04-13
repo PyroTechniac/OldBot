@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = class extends Command {
     constructor(...args) {
-        super(...args, { description: 'Check how many points you have', aliases: ['xp', 'exp', 'experience'], runIn: ['text'] });
+        super(...args, { description: 'Check how many points you have', aliases: ['xp', 'exp', 'experience'], runIn: ['text'], requiredSettings: ['levelling'] });
     }
 
     async run(message) {
