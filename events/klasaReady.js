@@ -6,6 +6,12 @@ module.exports = class extends Event {
     }
 
     async run() {
-        this.client.schedule.create('cleanup', '@daily');
+        await this.client.schedule.create('cleanup', '@daily');
+        await this.client.user.setPresence({
+            activity: {
+                type: 'PLAYING',
+                name: 'Starlight, help'
+            }
+        });
     }
 };
