@@ -26,7 +26,8 @@ KlasaClient.defaultUserSchema
     .add('level', 'Integer', {
         default: 0,
         configurable: false
-    });
+    })
+    .add('cooling', 'boolean', { default: false });
 new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
