@@ -8,6 +8,8 @@ module.exports = class extends Monitor {
     async run(message) {
         if (!message.guild) return;
 
+        if (!message.guild.levelling) return;
+
         if (message.author.settings.cooling) return;
 
         const nextValue = message.author.settings.experience + 1;
