@@ -14,6 +14,9 @@ KlasaClient
         folder
             .add('muted', 'Role');
     });
+KlasaClient.defaultClientSchema
+    .add('message', 'messagepromise')
+    .add('timestamp', 'bigint', { default: 0 });
 new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
