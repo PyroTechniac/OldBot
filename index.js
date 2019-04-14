@@ -17,7 +17,8 @@ KlasaClient
     });
 KlasaClient.defaultClientSchema
     .add('message', 'messagepromise')
-    .add('timestamp', 'bigint', { default: 0 });
+    .add('timestamp', 'bigint', { default: 0 })
+    .add('mainChannel');
 KlasaClient.defaultUserSchema
     .add('experience', 'Integer', {
         default: 0,
