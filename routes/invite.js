@@ -6,6 +6,6 @@ module.exports = class extends Route {
     }
 
     get(request, response) {
-        return response.end(JSON.stringify(this.client.invite));
+        return response.end(JSON.stringify({ invite: this.client.invite }));
     }
 };
