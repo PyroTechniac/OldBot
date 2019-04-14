@@ -10,7 +10,7 @@ module.exports = class extends Route {
         if (!mainChannel) return response.end('{}');
         mainChannel = this.client.channels.get(mainChannel);
         mainChannel.createInvite({ unique: true, maxUses: 1, maxAge: 120 }).then(invite => {
-            return response.end(JSON.stringify({ invite }));
+            return response.end(JSON.stringify({ invite: invite.url }));
         });
     }
 };
