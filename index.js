@@ -1,4 +1,5 @@
 const { KlasaClient } = require('klasa');
+const { Permissions } = require('discord.js');
 require('dotenv').config();
 
 KlasaClient
@@ -32,6 +33,8 @@ KlasaClient.defaultUserSchema
         default: false,
         configurable: false
     });
+KlasaClient
+    .basePermissions.add(Permissions.resolve('CREATE_INSTANT_INVITE'));
 new KlasaClient({
     regexPrefix: /^(hey )?starlight(,|!)/i,
     commandEditing: true,
