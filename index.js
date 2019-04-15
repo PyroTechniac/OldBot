@@ -3,15 +3,15 @@ const { Permissions } = require('discord.js');
 require('dotenv').config();
 
 KlasaClient
+    .use(require('./plugins/moderation'))
+    .use(require('./plugins/tags'))
     .use(require('./plugins/functions'))
     .use(require('./plugins/util'))
-    .use(require('./plugins/tags'))
     .use(require('./plugins/channelsGateway'))
     .use(require('./plugins/membersGateway'))
     .use(require('klasa-dashboard-hooks'))
     .defaultGuildSchema
     .add('deleteCommand', 'boolean', { default: false })
-    .add('antiinvite', 'boolean', { default: false })
     .add('minAccAge', 'integer', { default: 1800000 })
     .add('levelling', 'boolean', { default: true })
     .add('repo', 'String', { default: 'PyroTechniac/Starlight' })
