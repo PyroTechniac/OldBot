@@ -37,6 +37,10 @@ class CommandUtil {
     reply(content, options) {
         return this.message.sendMessage(APIMessage.transformOptions(content, options, { reply: this.message.member || this.message.author }));
     }
+
+    throw(res) {
+        throw res;
+    }
 }
 
 module.exports = CommandUtil;
