@@ -18,7 +18,13 @@ module.exports = class extends Monitor {
 
         const nextLevel = Math.floor(0.1 * Math.sqrt(nextValue + 1));
 
-        await message.member.settings.update([['experience', nextValue], ['level', nextLevel], ['cooling', true]]);
+        await Promise.all([
+            message.member.settings.update('experience', nextValue),
+            message.member.settings.update('level', nextLevel),
+            message.member.settings.update('cooling', true)
+        ]);
+
+        // await message.member.settings.update([['experience', nextValue], ['level', nextLevel], ['cooling', true]]);
 
         await this.client.schedule.create('cooldown', Date.now() + (1000 * 60), {
             data: {
