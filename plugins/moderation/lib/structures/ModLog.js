@@ -30,7 +30,7 @@ class ModLog {
         this.moderator = {
             id: user.id,
             tag: user.tag,
-            avatar: user.displayAvatar()
+            avatar: user.displayAvatarURL()
         };
         return this;
     }
