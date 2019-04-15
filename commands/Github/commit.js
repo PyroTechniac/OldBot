@@ -77,7 +77,7 @@ module.exports = class extends Command {
             .setThumbnail(body.author ? body.author.avatar_url : '')
             .setTimestamp(new Date(body.commit.author.date));
 
-        if (!message.permissionsFor(message.guild.me).has(['ADD_REACTIONS', 'MANAGE_MESSAGES'], false)) return message.util.embed(embed);
+        if (!message.channel.permissionsFor(message.guild.me).has(['ADD_REACTIONS', 'MANAGE_MESSAGES'], false)) return message.util.embed(embed);
         const msg = await message.util.embed(embed);
         await msg.react('🗑');
         let react;
