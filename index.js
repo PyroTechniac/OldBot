@@ -22,7 +22,7 @@ KlasaClient.defaultClientSchema
     .add('message', 'messagepromise')
     .add('timestamp', 'bigint', { default: 0 })
     .add('mainChannel', 'TextChannel');
-KlasaClient.defaultUserSchema
+KlasaClient.defaultMemberSchema
     .add('experience', 'Integer', {
         default: 0,
         configurable: false

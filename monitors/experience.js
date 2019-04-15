@@ -10,19 +10,19 @@ module.exports = class extends Monitor {
 
         if (!message.guild.settings.levelling) return;
 
-        if (message.author.settings.get('cooling')) return;
+        if (message.member.settings.get('cooling')) return;
 
         const nextValue = message.author.settings.experience + 1;
 
-        const currentLevel = message.author.settings.level;
+        const currentLevel = message.member.settings.level;
 
         const nextLevel = Math.floor(0.1 * Math.sqrt(nextValue + 1));
 
-        await message.author.settings.update([['experience', nextValue], ['level', nextLevel], ['cooling', true]]);
+        await message.member.settings.update([['experience', nextValue], ['level', nextLevel], ['cooling', true]]);
 
         await this.client.schedule.create('cooldown', Date.now() + (1000 * 60), {
             data: {
-                user: message.author
+                user: message.member
             },
             catchUp: true
         });
