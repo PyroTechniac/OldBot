@@ -10,7 +10,7 @@ module.exports = class extends Monitor {
 
         if (!message.guild.levelling) return;
 
-        if (message.author.settings.cooling) return;
+        if (message.author.settings.get('cooling')) return;
 
         const nextValue = message.author.settings.experience + 1;
 
