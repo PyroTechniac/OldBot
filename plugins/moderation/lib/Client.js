@@ -21,6 +21,7 @@ class ModClient extends Client {
         this.commands.registerCoreDirectory(coreDirectory);
         this.monitors.registerCoreDirectory(coreDirectory);
         this.languages.registerCoreDirectory(coreDirectory);
+        this.events.registerCoreDirectory(coreDirectory);
     }
 }
 
