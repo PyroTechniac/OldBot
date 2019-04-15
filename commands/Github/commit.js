@@ -6,7 +6,7 @@ const { stripIndents } = require('common-tags');
 module.exports = class extends Command {
     constructor(client, store, file, directory) {
         super(client, store, file, directory, {
-            usage: '<commit:string{,40}',
+            usage: '<commit:string{,40}>',
             usageDelim: ' ',
             description: 'Get information on a commit in a predefined repository',
             requiredPermissions: ['EMBED_LINKS'],
