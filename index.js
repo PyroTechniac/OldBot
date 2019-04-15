@@ -7,6 +7,7 @@ KlasaClient
     .use(require('./plugins/tags'))
     .use(require('./plugins/functions'))
     .use(require('./plugins/channelsGateway'))
+    .use(require('./plugins/util'))
     .defaultGuildSchema
     .add('deleteCommand', 'boolean', { default: false })
     .add('antiinvite', 'boolean', { default: false })

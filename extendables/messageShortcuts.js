@@ -22,6 +22,9 @@ module.exports = class extends Extendable {
             .catch(() => false);
     }
 
+    includes(key) {
+        return this.content.includes(key);
+    }
 };
 
 const awaitReaction = async (msg, message) => {
