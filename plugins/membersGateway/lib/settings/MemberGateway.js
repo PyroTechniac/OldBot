@@ -66,7 +66,7 @@ class MemberGateway extends GatewayStorage {
                 cache._patch(entry);
             }
 
-            for (const guild of this.client.guild.values()) {
+            for (const guild of this.client.guilds.values()) {
                 for (const member of guild.members.values()) if (member.settings._existsInDB !== true) member.settings._existsInDB = false;
             }
             return this;
