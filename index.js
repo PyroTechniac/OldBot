@@ -3,11 +3,12 @@ const { Permissions } = require('discord.js');
 require('dotenv').config();
 
 KlasaClient
-    .use(require('klasa-dashboard-hooks'))
-    .use(require('./plugins/tags'))
     .use(require('./plugins/functions'))
-    .use(require('./plugins/channelsGateway'))
     .use(require('./plugins/util'))
+    .use(require('./plugins/tags'))
+    .use(require('./plugins/channelsGateway'))
+    .use(require('./plugins/membersGateway'))
+    .use(require('klasa-dashboard-hooks'))
     .defaultGuildSchema
     .add('deleteCommand', 'boolean', { default: false })
     .add('antiinvite', 'boolean', { default: false })

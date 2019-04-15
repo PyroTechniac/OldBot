@@ -55,6 +55,29 @@ class MemberGateway extends GatewayStorage {
     async sync(input = this.client.guilds.reduce((keys, guild) => keys.concat(guild.members.map(member => member.settings.id)), [])) {
         if (Array.isArray(input)) {
             if (!this._synced) this._synced = true;
+            const entries = await this.provider.getAll(this.type, input);
+            for (const entry of entries) {
+                if (!entry) continue;
+
+                const cache = this.get(entry.id);
+                if (!cache) continue;
+
+                cache._existsInDB = true;
+                cache._patch(entry);
+            }
+
+            for (const guild of this.client.guild.values()) {
+                for (const member of guild.members.values()) if (member.settings._existsInDB !== true) member.settings._existsInDB = false;
+            }
+            return this;
         }
+
+        const target = getIdentifier(input);
+        if (!target) throw new TypeError('The selected target could not be resolved to a string');
+
+        const cache = this.get(target);
+        return cache ? cache.sync() : null;
     }
 }
+
+module.exports = MemberGateway;
