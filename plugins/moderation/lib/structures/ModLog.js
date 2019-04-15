@@ -61,7 +61,7 @@ class ModLog {
         return embed;
     }
 
-    async getCase() {
+    get pack() {
         return {
             type: this.type,
             user: this.user.id,
@@ -69,6 +69,13 @@ class ModLog {
             reason: this.reason,
             case: this.case
         };
+    }
+
+    async getCase() {
+        this.case = this.guild.settings.modlogs.length;
+        const { errors } = await this.guild.settings.update('modlogs', this.pack);
+        if (errors.length) throw errors[0];
+        return this.case;
     }
 
     static color(type) {
