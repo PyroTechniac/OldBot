@@ -12,7 +12,7 @@ module.exports = class extends Monitor {
 
         if (message.member.settings.get('cooling')) return;
 
-        const nextValue = message.author.settings.experience + 1;
+        const nextValue = message.member.settings.experience + 1;
 
         const currentLevel = message.member.settings.level;
 
