@@ -6,6 +6,10 @@ module.exports = class extends Task {
     }
 
     async run(data) {
-        await data.user.settings.update('cooling', false);
+        const guild = this.client.guilds.get(data.guildID);
+        if (!guild) return;
+        const member = this.client.util.resolveMember(data.memberID, guild.members);
+        if (!member) return;
+        await member.settings.update('cooling', false);
     }
 };

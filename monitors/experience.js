@@ -28,7 +28,8 @@ module.exports = class extends Monitor {
 
         await this.client.schedule.create('cooldown', Date.now() + (1000 * 60), {
             data: {
-                user: message.member
+                memberID: message.member.id,
+                guildID: message.guild.id
             },
             catchUp: true
         });
