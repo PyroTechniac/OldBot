@@ -8,7 +8,7 @@ module.exports = class extends Monitor {
     async run(message) {
         if (!message.guild) return;
 
-        if (!message.guild.levelling) return;
+        if (!message.guild.settings.levelling) return;
 
         if (message.author.settings.get('cooling')) return;
 
