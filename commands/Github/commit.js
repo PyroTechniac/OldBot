@@ -25,7 +25,7 @@ module.exports = class extends Command {
     }
 
     async run(message, [commit]) {
-        const repository = message.guild.settings.get('repository');
+        const repository = message.guild.settings.get('repo');
         if (!repository) message.util.throw('The guild owner didn\'t set a GitHub repository yet');
         const owner = repository.split('/')[0];
         const repo = repository.split('/')[1];
