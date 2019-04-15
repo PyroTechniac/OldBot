@@ -13,6 +13,6 @@ module.exports = class extends Command {
             .addField('Level', `${message.author.settings.level}`)
             .addField('Experience', `${message.author.settings.experience}`);
 
-        await message.sendEmbed(embed);
+        await message.util.embed(embed);
     }
 };

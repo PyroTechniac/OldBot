@@ -37,6 +37,6 @@ module.exports = class extends Command {
             .setURL(`https://developer.mozilla.org${body.URL}`)
             .setTitle(body.Title)
             .setDescription(turndown.turndown(summary));
-        return message.sendEmbed(embed);
+        return message.util.embed(embed);
     }
 };

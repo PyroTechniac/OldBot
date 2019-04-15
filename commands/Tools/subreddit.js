@@ -24,7 +24,7 @@ module.exports = class extends Command {
             })
             .catch(() => { throw this.errorMessage; });
 
-        return msg.sendEmbed(new MessageEmbed()
+        return msg.util.embed(new MessageEmbed()
             .setTitle(subreddit.title)
             .setDescription(subreddit.public_description)
             .setURL(`https://www.reddit.com/r/${subredditName}/`)

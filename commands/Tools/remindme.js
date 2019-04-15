@@ -24,7 +24,7 @@ module.exports = class extends Command {
                 text
             }
         });
-        return msg.sendMessage(`Ok, I created you a reminder with the id: \`${reminder.id}\``);
+        return msg.util.send(`Ok, I created you a reminder with the id: \`${reminder.id}\``);
     }
 
 };

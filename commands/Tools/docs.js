@@ -19,7 +19,7 @@ module.exports = class extends Command {
         const res = await fetch(`${docs}main/master/embed?${queryString}`);
         const embed = await res.json();
         if (!embed) throw 'There wasn\'t anything in the docs about that';
-        const msg = await message.sendEmbed(new MessageEmbed(embed));
+        const msg = await message.util.embed(embed);
         await msg.react('🗑');
         let react;
         try {

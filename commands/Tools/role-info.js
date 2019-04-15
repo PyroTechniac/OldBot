@@ -46,7 +46,7 @@ module.exports = class extends Command {
     run(msg, [role]) {
         const allPermissions = Object.entries(role.permissions.serialize()).filter(perm => perm[1]).map(([perm]) => this.perms[perm]).join(', ');
 
-        return msg.sendEmbed(new MessageEmbed()
+        return msg.util.embed(new MessageEmbed()
             .setColor(role.hexColor || 0xFFFFFF)
             .addField('❯ Name', role.name, true)
             .addField('❯ ID', role.id, true)

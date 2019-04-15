@@ -26,7 +26,7 @@ module.exports = class extends Command {
             .setTitle(article.title)
             .setDescription(article.extract);
 
-        return msg.sendEmbed(embed);
+        return msg.util.embed(embed);
     }
 
 };

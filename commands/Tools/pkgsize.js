@@ -25,7 +25,7 @@ module.exports = class extends Command {
 
         if (!publishSize && !installSize) throw 'That package doesn\'t exist.';
 
-        return msg.send(`
+        return msg.util.send(`
 <https://www.npmjs.com/package/${name}>
 **Publish Size:** ${getBytes(publishSize)}
 **Install Size:** ${getBytes(installSize)}

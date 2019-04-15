@@ -8,7 +8,7 @@ module.exports = class extends Command {
     }
 
     async run(msg) {
-        return msg.reply(`Rolling a D20... 🎲 **${Math.ceil(Math.random() * 20)}**`);
+        return msg.util.reply(`Rolling a D20... 🎲 **${Math.ceil(Math.random() * 20)}**`);
     }
 
 };

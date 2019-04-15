@@ -20,7 +20,7 @@ module.exports = class extends Command {
     }
 
     run(msg, [member = msg.member]) {
-        return msg.sendEmbed(new MessageEmbed()
+        return msg.util.embed(new MessageEmbed()
             .setColor(member.displayHexColor || 0xFFFFFF)
             .setThumbnail(member.user.displayAvatarURL())
             .addField('❯ Name', member.user.tag, true)

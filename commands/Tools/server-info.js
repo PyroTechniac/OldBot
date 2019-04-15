@@ -28,7 +28,7 @@ module.exports = class extends Command {
     }
 
     run(msg) {
-        return msg.sendEmbed(new MessageEmbed()
+        return msg.util.embed(new MessageEmbed()
             .setColor(0x00AE86)
             .setThumbnail(msg.guild.iconURL())
             .addField('❯ Name', msg.guild.name, true)
