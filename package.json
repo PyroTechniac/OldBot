@@ -17,6 +17,8 @@
         "jimp": "^0.6.1",
         "klasa": "dirigeants/klasa",
         "klasa-dashboard-hooks": "dirigeants/klasa-dashboard-hooks",
+        "moment": "^2.24.0",
+        "moment-duration-format": "^2.2.2",
         "mongodb": "^3.2.3",
         "node-fetch": "^2.3.0",
         "turndown": "^5.0.3",
