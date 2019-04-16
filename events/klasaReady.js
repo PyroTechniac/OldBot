@@ -19,10 +19,10 @@ module.exports = class extends Event {
         const { tasks } = this.client.schedule;
         for (const s of tasks) {
             if (s.taskName === task) {
-                this.client.emit('debug', `Skipping task ${task}`);
+                this.client.emit('log', `Skipping task ${task}`);
                 continue;
             }
-            this.client.emit('debug', `Creating task ${task}`);
+            this.client.emit('log', `Creating task ${task}`);
             await this.client.schedule.create(task, time);
         }
     }
