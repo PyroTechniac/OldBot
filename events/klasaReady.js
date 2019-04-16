@@ -10,6 +10,8 @@ module.exports = class extends Event {
         if (!tasks.some(t => t.taskName === 'cleanup')) {
             this.client.emit('log', 'Creating task cleanup');
             await this.client.schedule.create('cleanup', '@daily');
+        } else {
+            this.client.emit('log', 'Skipping task creation');
         }
         await this.client.user.setPresence({
             activity: {
