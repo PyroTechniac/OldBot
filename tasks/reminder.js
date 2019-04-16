@@ -1,16 +1,19 @@
-// Copyright (c) 2017-2019 dirigeants. All rights reserved. MIT license.
 const { Task } = require('klasa');
 
-/*
-	This is to be used with the remindme command located in
-	/commands/Tools/remindme.js
-*/
-
 module.exports = class extends Task {
-
-    async run({ channel, user, text }) {
-        const _channel = this.client.channels.get(channel);
-        if (_channel) await _channel.send(`<@${user}> You wanted me to remind you: ${text}`);
+    constructor(client, store, file, directory) {
+        super(client, store, file, directory, {
+            name: 'reminder',
+            enabled: true
+        });
     }
 
+    async run({ user, channel, text }) {
+        if (channel) {
+            try {
+                this.client.util.resolveChannel(channel, this.client.channels).send(`${this.client.util.resolveUser(user, this.client.users)}, you wanted me to remind you:\n\`${text}\``);
+            } catch (err) { null; }
+        }
+        return this.client.util.resolveUser(user, this.client.users).send(`You wanted me to remind you:\n\`${text}\``);
+    }
 };
