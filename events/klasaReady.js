@@ -13,14 +13,14 @@ module.exports = class extends Event {
             }
         });
 
-        this.ensureTask('cleanup', '@daily');
+        await this.ensureTask('cleanup', '@daily');
     }
 
-    ensureTask(task, time) {
-        const schedules = this.client.settings.get('schedules');
-        for (const s of schedules) {
+    async ensureTask(task, time) {
+        const { tasks } = this.client.schedule;
+        for (const s of tasks) {
             if (s.taskName === task) continue;
-            this.client.schedule.create(task, time);
+            await this.client.schedule.create(task, time);
         }
     }
 };
