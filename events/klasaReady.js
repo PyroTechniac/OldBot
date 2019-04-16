@@ -6,20 +6,23 @@ module.exports = class extends Event {
     }
 
     async run() {
+        await this.ensureTask('cleanup', '@daily');
         await this.client.user.setPresence({
             activity: {
                 type: 'PLAYING',
                 name: 'Starlight, help'
             }
         });
-
-        await this.ensureTask('cleanup', '@daily');
     }
 
     async ensureTask(task, time) {
         const { tasks } = this.client.schedule;
         for (const s of tasks) {
-            if (s.taskName === task) continue;
+            if (s.taskName === task) {
+                this.client.emit(`Skipping task ${task}`);
+                continue;
+            }
+            this.client.emit('log', `Creating task ${task}`);
             await this.client.schedule.create(task, time);
         }
     }
