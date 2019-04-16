@@ -6,12 +6,20 @@ module.exports = class extends Event {
     }
 
     async run() {
-        await this.client.schedule.create('cleanup', '@daily');
         await this.client.user.setPresence({
             activity: {
                 type: 'PLAYING',
                 name: 'Starlight, help'
             }
         });
+
+        this.ensureTask('cleanup', '@daily');
+    }
+
+    ensureTask(task, time) {
+        const schedules = this.client.settings.schedules;
+        if (!schedules.some(s => s.taskName === task)) {
+            this.client.schedule.create(task, time);
+        }
     }
 };
