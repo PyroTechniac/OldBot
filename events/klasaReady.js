@@ -15,16 +15,4 @@ module.exports = class extends Event {
             }
         });
     }
-
-    async ensureTask(task, time) {
-        const { tasks } = this.client.schedule;
-        for (const s of tasks) {
-            if (s.taskName === task) {
-                this.client.emit('log', `Skipping task ${task}`);
-                continue;
-            }
-            this.client.emit('log', `Creating task ${task}`);
-            await this.client.schedule.create(task, time);
-        }
-    }
 };
