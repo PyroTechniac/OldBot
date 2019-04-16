@@ -44,7 +44,7 @@ new KlasaClient({
     commandMessageLifetime: 1800,
     prefix: 's!',
     providers: {
-        default: 'mongodb',
+        default: process.env.NODE_PRODUCITON === 'production' ? 'mongodb' : 'json',
         mongodb: {
             connectionString: process.env.DB_STRING
         }
