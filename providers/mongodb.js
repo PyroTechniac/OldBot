@@ -14,7 +14,7 @@ module.exports = class extends Provider {
         const connection = mergeDefault({
             host: 'localhost',
             port: 27017,
-            db: 'sunshine',
+            db: 'test',
             options: {}
         }, this.client.options.providers.mongodb);
 
