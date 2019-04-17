@@ -13,6 +13,7 @@ module.exports = class extends Event {
                 name: 'Starlight, help'
             }
         });
+        this.client.emit('nmsReady');
     }
 
     ensureTask(task, time) {

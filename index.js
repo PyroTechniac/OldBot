@@ -3,10 +3,11 @@ const { Permissions } = require('discord.js');
 require('dotenv').config();
 
 KlasaClient
+    .use(require('./plugins/util'))
     .use(require('./plugins/moderation'))
     .use(require('./plugins/tags'))
+    .use(require('./plugins/noMentionSpam'))
     .use(require('./plugins/functions'))
-    .use(require('./plugins/util'))
     .use(require('./plugins/channelsGateway'))
     .use(require('./plugins/membersGateway'))
     .use(require('klasa-dashboard-hooks'))
