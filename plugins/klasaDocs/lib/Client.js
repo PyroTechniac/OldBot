@@ -16,7 +16,7 @@ class DocsClient extends Client {
     }
 
     static [Client.plugin]() {
-        util.mergeDefault(DEFAULTS, this.options.docs);
+        this.options.docs = util.mergeDefault(DEFAULTS, this.options.docs);
         const coreDirectory = join(__dirname, '..', '/');
 
         this.events.registerCoreDirectory(coreDirectory);
