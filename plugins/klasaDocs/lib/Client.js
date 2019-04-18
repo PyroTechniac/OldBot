@@ -20,9 +20,7 @@ class DocsClient extends Client {
         const coreDirectory = join(__dirname, '..', '/');
 
         this.events.registerCoreDirectory(coreDirectory);
-        this.languages.registerCoreDirectory(coreDirectory);
         this.monitors.registerCoreDirectory(coreDirectory);
-        this.commands.registerCoreDirectory(coreDirectory);
 
         this.documentation = new Documentation(this, this.options.docs.repository, this.options.docs.jsonBranch, this.options.docs.branches);
     }
