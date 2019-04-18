@@ -15,7 +15,6 @@ KlasaClient
     .add('deleteCommand', 'boolean', { default: false })
     .add('minAccAge', 'integer', { default: 1800000 })
     .add('levelling', 'boolean', { default: true })
-    .add('repo', 'String', { default: 'PyroTechniac/Starlight' })
     .add('roles', folder => {
         folder
             .add('muted', 'Role');
