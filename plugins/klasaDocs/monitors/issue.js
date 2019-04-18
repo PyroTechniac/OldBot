@@ -88,7 +88,7 @@ class Issue extends Monitor {
     }
 
     pullRequest(data) {
-        const state = data.state === 'closed' && data.merged ? 'merged' : state;
+        const state = data.state === 'closed' && data.merged ? 'merged' : data.state;
         const embed = this._shared(data)
             .setColor(this.colors.pullRequests[state])
             .addField('__**Additions:**__', data.additions, true)
