@@ -11,6 +11,7 @@ KlasaClient
     .use(require('./plugins/channelsGateway'))
     .use(require('./plugins/membersGateway'))
     .use(require('klasa-dashboard-hooks'))
+    .use(require('./plugins/klasaDocs'))
     .defaultGuildSchema
     .add('deleteCommand', 'boolean', { default: false })
     .add('minAccAge', 'integer', { default: 1800000 })

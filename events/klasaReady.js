@@ -14,6 +14,7 @@ module.exports = class extends Event {
             }
         });
         this.client.emit('nmsReady');
+        this.client.emit('docsReady');
     }
 
     ensureTask(task, time) {
