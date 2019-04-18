@@ -24,7 +24,7 @@ class DocsClient extends Client {
         this.monitors.registerCoreDirectory(coreDirectory);
         this.commands.registerCoreDirectory(coreDirectory);
 
-        this.documentation = new Documentation(this, this.options.repository, this.options.jsonBranch, this.options.branches);
+        this.documentation = new Documentation(this, this.options.docs.repository, this.options.docs.jsonBranch, this.options.docs.branches);
     }
 }
 
