@@ -6,7 +6,7 @@ KlasaClient
     .use(require('./plugins/util'))
     .use(require('./plugins/moderation'))
     .use(require('./plugins/tags'))
-    // .use(require('./plugins/noMentionSpam'))
+    .use(require('./plugins/noMentionSpam'))
     .use(require('./plugins/functions'))
     .use(require('./plugins/channelsGateway'))
     .use(require('./plugins/membersGateway'))

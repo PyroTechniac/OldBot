@@ -1,4 +1,4 @@
-const { Client, Monitor } = require('klasa');
+const { Monitor } = require('klasa');
 
 module.exports = class extends Monitor {
     constructor(client, store, file, directory) {
@@ -20,5 +20,13 @@ module.exports = class extends Monitor {
         if (!mentions) return;
 
         const rateLimit = message.guild.nms.acquire(message.author.id);
+
+        try {
+            for (let i = 0; i < mentions; i++) rateLimit.drip();
+
+            if (rateLimit.remaining / rateLimit.bucket < 0.2) this.client.emit('messageSpamWarning', message);
+        } catch (error) {
+            this.client.emit('messageSpamExceeded', message);
+        }
     }
 };
