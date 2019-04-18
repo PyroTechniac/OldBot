@@ -7,13 +7,9 @@ module.exports = class extends Monitor {
 
     async run(message) {
         if (!message.content) return null;
-        let placeholder1, placeholder2, branch, path;
-        try {
-            [placeholder1, placeholder2, branch = 'master', path] = message.content.match(/^((?:klasa )?docs(?:,|!| )?) ?(?:(master|stable))? ?(.+)/i);
-            this.client.console.log(branch, path);
-            return null;
-        } catch (error) {
-            return null;
-        }
+        const exec = message.content.match(/^((?:klasa )?docs(?:,|!| )?) ?(?:(master|stable))? ?(.+)/i);
+        if (exec === null) return;
+        const [, , branch = 'master', path] = exec;
+        this.client.console.log(branch, path);
     }
 };
