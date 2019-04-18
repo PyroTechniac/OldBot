@@ -47,7 +47,7 @@ class Issue extends Monitor {
                 if (data.message !== 'Not Found') response = this.issue(data);
             }
         } catch (err) {
-            // Noop
+            this.client.console.log(err);
         }
 
         if (message.deleted) return;
