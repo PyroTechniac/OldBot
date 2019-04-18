@@ -76,15 +76,16 @@ class Issue extends Monitor {
     _shared(data) {
         const description = data.body.length > 2048 ? `${data.body.slice(0, 2045)}...` : data.body;
 
-        return new MessageEmbed()
+        const embed = new MessageEmbed()
             .setThumbnail('https://raw.githubusercontent.com/dirigeants/klasa-website/master/public/static/klasa.png')
             .setAuthor(data.user.login, data.user.avatar_url, data.user.html_url)
             .setTitle(data.title)
             .setURL(data.html_url)
             .setDescription(description)
             .setTimestamp(new Date(data.created_at))
-            .addField('__**Status:**__', data.state, true)
-            .addField('__**Labels:**__', data.labels.map(label => label.name), true);
+            .addField('__**Status:**__', data.state, true);
+        if (data.labels && data.labels.length > 0) embed.addField('__**Labels:**__', data.labels.map(label => label.name), true);
+        return embed;
     }
 
     pullRequest(data) {
