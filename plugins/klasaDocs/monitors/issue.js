@@ -5,8 +5,7 @@ class Issue extends Monitor {
     constructor(client, store, file, directory) {
         super(client, store, file, directory, {
             ignoreEdits: false,
-            ignoreOthers: false,
-            enabled: false
+            ignoreOthers: false
         });
         this.colors = {
             pullRequests: {
@@ -50,6 +49,61 @@ class Issue extends Monitor {
         } catch (err) {
             // Noop
         }
+
+        if (message.deleted) return;
+
+        await message.reactions.removeAll();
+
+        if (!response) return;
+
+        const msg = await message.sendEmbed(response);
+
+        try {
+            await msg.react('🗑');
+            await msg.awaitReactions((reaction, user) => reaction.emoji.name === '🗑' && user === reacter, {
+                time: 60000,
+                max: 1,
+                errors: ['time']
+            });
+            await msg.delete();
+        } catch (err) {
+            if (msg.deleted) return;
+
+            await msg.reactions.removeAll();
+        }
+    }
+
+    _shared(data) {
+        const description = data.body.length > 2048 ? `${data.body.slice(0, 2045)}...` : data.body;
+
+        return new MessageEmbed()
+            .setThumbnail('https://raw.githubusercontent.com/dirigeants/klasa-website/master/public/static/klasa.png')
+            .setAuthor(data.user.login, data.user.avatar_url, data.user.html_url)
+            .setTitle(data.title)
+            .setURL(data.html_url)
+            .setDescription(description)
+            .setTimestamp(new Date(data.created_at))
+            .addField('__**Status:**__', data.state, true)
+            .addField('__**Labels:**__', data.labels.map(label => label.name), true);
+    }
+
+    pullRequest(data) {
+        const state = data.state === 'closed' && data.merged ? 'merged' : state;
+        const embed = this._shared(data)
+            .setColor(this.colors.pullRequests[state])
+            .addField('__**Additions:**__', data.additions, true)
+            .addField('__**Deletions:**__', data.deletions, true)
+            .addField('__**Commits:**__', data.commits, true)
+            .addField('__**Files Changed:**__', data.changed_files, true)
+            .setFooter(`Pull Request: ${data.number}`);
+        if (data.head.repo && data.state !== 'closed') embed.addField('__**Install With:**__', `\`npm i ${data.head.repo.full_name}#${data.head.ref}\``);
+        return embed;
+    }
+
+    issue(data) {
+        return this._shared(data)
+            .setColor(this.colors.issues[data.state])
+            .setFooter(`Issue: ${data.number}`);
     }
 }
 
