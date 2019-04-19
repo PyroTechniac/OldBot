@@ -10,7 +10,7 @@ module.exports = class extends Event {
         await this.client.user.setPresence({
             activity: {
                 type: 'PLAYING',
-                name: 'Starlight, help'
+                name: process.env.NODE_ENV === 'production' ? 'Starlight, help' : 'Test, help'
             }
         });
         this.client.emit('nmsReady');

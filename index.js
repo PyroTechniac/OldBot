@@ -39,7 +39,7 @@ KlasaClient.defaultMemberSchema
 KlasaClient
     .basePermissions.add(Permissions.resolve('CREATE_INSTANT_INVITE'));
 new KlasaClient({
-    regexPrefix: /^(hey )?starlight(,|!)/i,
+    regexPrefix: process.env.NODE_ENV === 'production' ? /^(hey )?starlight(,|!)/i : /^(hey )?test(,|!)/i,
     commandEditing: true,
     commandMessageLifetime: 1800,
     prefix: 's!',
@@ -59,5 +59,8 @@ new KlasaClient({
     commandLogging: true,
     dashboardHooks: {
         port: process.env.PORT
+    },
+    docs: {
+        branches: ['master']
     }
 }).login(process.env.TOKEN);
